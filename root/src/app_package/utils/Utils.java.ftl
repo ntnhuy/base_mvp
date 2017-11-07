@@ -456,12 +456,13 @@ public class Utils {
 
     public static Typeface get(String name, Context context) {
         Typeface tf = fontCache.get(name);
-        if(tf == null) {
+        if (tf == null) {
             try {
                 tf = Typeface.createFromAsset(context.getAssets(), "fonts/" + name);
-            }
-            catch (Exception e) {
-                return null;
+            } catch (RuntimeException e1) {
+                tf = Typeface.DEFAULT;
+            } catch (Exception e) {
+                tf = Typeface.DEFAULT;
             }
             fontCache.put(name, tf);
         }
