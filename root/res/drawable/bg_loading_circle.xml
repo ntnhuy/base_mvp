@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transition xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <gradient android:startColor="@color/gray_placeholder" android:centerColor="@color/gray_placeholder" android:endColor="@color/gray_light" />
+        </shape>
+    </item><item>
+    <shape android:shape="oval">
+        <gradient android:startColor="@color/gray_light" android:centerColor="@color/gray_placeholder" android:endColor="@color/gray_placeholder" />
+    </shape>
+</item>
+</transition>

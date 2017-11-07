@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="96"
+    android:viewportHeight="96"
+    android:width="120dp"
+    android:height="120dp">
+    <path
+        android:pathData="M8 8c2.67 0 5.33 0 8 0 0 2.67 0 5.33 0 8 -2.67 0 -5.33 0 -8 0 0 -2.67 0 -5.33 0 -8z"
+        android:fillColor="@color/color_bg_blue" />
+    <path
+        android:pathData="M28 8c20 0 40 0 60 0 0 2.67 0 5.33 0 8 -20 0 -40 0 -60 0 0 -2.67 0 -5.33 0 -8z"
+        android:fillColor="@color/color_bg_blue" />
+    <path
+        android:pathData="M8 32c2.67 0 5.33 0 8 0 0 2.67 0 5.33 0 8 -2.67 0 -5.33 0 -8 0 0 -2.67 0 -5.33 0 -8z"
+        android:fillColor="@color/color_bg_blue" />
+    <path
+        android:pathData="M28 32c20 0 40 0 60 0 0 2.67 0 5.33 0 8 -20 0 -40 0 -60 0 0 -2.67 0 -5.33 0 -8z"
+        android:fillColor="@color/color_bg_blue" />
+    <path
+        android:pathData="M8 56c2.67 0 5.33 0 8 0 0 2.67 0 5.33 0 8 -2.67 0 -5.33 0 -8 0 0 -2.67 0 -5.33 0 -8z"
+        android:fillColor="@color/color_bg_blue" />
+    <path
+        android:pathData="M28 56c20 0 40 0 60 0 0 2.67 0 5.33 0 8 -20 0 -40 0 -60 0 0 -2.67 0 -5.33 0 -8z"
+        android:fillColor="@color/color_bg_blue" />
+    <path
+        android:pathData="M8 80c2.67 0 5.33 0 8 0 0 2.67 0 5.33 0 8 -2.67 0 -5.33 0 -8 0 0 -2.67 0 -5.33 0 -8z"
+        android:fillColor="@color/color_bg_blue" />
+    <path
+        android:pathData="M28 80c20 0 40 0 60 0 0 2.67 0 5.33 0 8 -20 0 -40 0 -60 0 0 -2.67 0 -5.33 0 -8z"
+        android:fillColor="@color/color_bg_blue" />
+</vector>

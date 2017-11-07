@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<template
+    format="3"
+    revision="4"
+    name="Base Project"
+    minApi="7"
+    minBuildApi="14"
+    description="Creates a new application with Base Project.">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="activityClass"
+        name="Activity Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${layoutToActivity(layoutName)}"
+        default="MainActivity"
+        help="The name of the activity class to create" />
+
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityClass)}"
+        default="activity_main"
+        help="The name of the layout to create for the activity" />
+	
+	<parameter
+        id="classApplication"
+        name="Class extends Application"
+        type="string"
+        constraints="nonempty|class"
+        default="App"
+        help="The name of class that extends from Application" />
+
+    <parameter
+        id="includeFabric"
+        name="Include Fabric"
+        type="boolean"
+        default="true"
+        help="Implements all references for using Fabric." /> 
+
+    <parameter
+        id="includeRetrofit"
+        name="Include Retrofit"
+        type="boolean"
+        default="true"
+        help="Implements all references for using Retrofit." />
+
+    <parameter
+        id="includeDB"
+        name="Include Database"
+        type="boolean"
+        default="true"
+        help="Implements all references for using GreenDAO." /> 
+
+    <parameter
+        id="includeGA"
+        name="Include Google Analytic"
+        type="boolean"
+        default="true"
+        help="Implements all references for using Google Analytic." /> 
+
+    <parameter
+        id="hasTabbar"
+        name="Tabbar in MainView"
+        type="boolean"
+        default="true"
+        help="Tabbar in MainView." /> 
+		
+    <parameter
+        id="Fabric_Key"
+        name="Fabric Key"
+        type="string"
+        constraint="nonempty|string"
+        default="e2e18ac7c0337ca8de6b5b632164395e4318a491"
+        visibility="includeFabric"
+        help="The base URL of your staging server. This will be used for debug builds" />
+
+    <parameter
+        id="stagingBaseUrl"
+        name="Staging Base URL"
+        type="string"
+        constraint="nonempty|string"
+        default="http://staging.baseurl.example.com"
+        visibility="includeRetrofit"
+        help="The base URL of your staging server. This will be used for debug builds" />
+
+    <parameter
+        id="releaseBaseUrl"
+        name="Base URL"
+        type="string"
+        constraint="nonempty|string"
+        default="http://release.baseurl.example.com"
+        visibility="includeRetrofit"
+        help="The base URL of your server. This will be used for release builds" />
+
+	<parameter
+		constraints="nonempty|string"
+		id="GA_KEY"
+		name="Google Analytic ID"
+		type="string"
+        visibility="includeGA"
+        default="UA-XXXXXXXX-X"
+		help="Id of Google Analytic" />
+
+    <parameter
+        id="positionOfTabbar"
+        name="Position Of Tabbar"
+        type="enum"
+        default="bottom"
+        visibility="hasTabbar"
+        help="Position Of Tabbar in MainView" >
+        <option id="top">Top</option>
+        <option id="bottom">Bottom</option>
+    </parameter>
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_base_project.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
