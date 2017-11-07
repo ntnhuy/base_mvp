@@ -16,7 +16,7 @@ import javax.inject.Inject;
 public class HomeFragment extends BaseFragment implements HomeView {
 
     @Inject
-    HomePresenter mPresenter;
+    HomePresenter presenter;
 
     View view;
 
@@ -62,7 +62,7 @@ public class HomeFragment extends BaseFragment implements HomeView {
     @Override
     public void initVariable() {
         getFragmentComponent().inject(this);
-        mPresenter.attachView(this);
+        presenter.attachView(this);
     }
 
     @Override
