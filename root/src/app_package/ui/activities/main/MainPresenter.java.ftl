@@ -1,12 +1,8 @@
 package ${packageName}.ui.activities.main;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +13,6 @@ import ${packageName}.R;
 import ${packageName}.datas.models.EventBusModel;
 import ${packageName}.app.bases.BasePresenter;
 import ${packageName}.datas.DataManager;
-import ${packageName}.utils.Constants;
 import ${packageName}.utils.Utils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -31,13 +26,17 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 </#if>
 <#if !hasTabbar>
-import android.support.v4.app.FragmentManager;
 import android.support.annotation.IdRes;
 import ${packageName}.enums.FragmentEnums;
 <#else>
 import ${packageName}.widgets.iconWithNotification.IconWithNotification;
 import ${packageName}.${classApplication};
 import android.widget.RelativeLayout;
+import android.view.Gravity;
+import ${packageName}.utils.Constants;
+import android.graphics.Color;
+import android.os.Handler;
+import android.support.design.widget.TabLayout;
 import android.view.Gravity;
 </#if>
 
@@ -207,8 +206,8 @@ public class ${activityClass?replace('Activity', '')}Presenter extends BasePrese
         return ic;
     }
 <#else>
-    public void onCreatedView(FragmentManager fragmentManager, FragmentEnums enums, @IdRes int resId) {
-        changeFragment(fragmentManager, enums, true, null, resId);
+    public void onCreatedView(FragmentEnums enums, @IdRes int resId) {
+        changeFragment(getMvpView().getSupportFragmentManager(), enums, true, null, resId);
     }
 </#if>
 }

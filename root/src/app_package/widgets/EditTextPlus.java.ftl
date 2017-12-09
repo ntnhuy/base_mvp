@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -61,12 +62,14 @@ public class EditTextPlus extends EditText {
 
     private void init(Context ctx, AttributeSet attrs) {
         String font = null;
+        measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        final int targetHeight = getMeasuredHeight();
         textColor = getTextColors();
         if (attrs != null) {
             TypedArray typedArray = ctx.obtainStyledAttributes(attrs, R.styleable.EditTextPlus);
             font = typedArray.getString(R.styleable.EditTextPlus_font);
-            mDrawableWidth = typedArray.getDimensionPixelSize(R.styleable.EditTextPlus_compoundDrawableWidth, -1);
-            mDrawableHeight = typedArray.getDimensionPixelSize(R.styleable.EditTextPlus_compoundDrawableHeight, -1);
+            mDrawableWidth = typedArray.getDimensionPixelSize(R.styleable.EditTextPlus_compoundDrawableWidth, (int) Utils.dp2px(30, ctx));
+            mDrawableHeight = typedArray.getDimensionPixelSize(R.styleable.EditTextPlus_compoundDrawableHeight, (int) Utils.dp2px(30, ctx));
             hintTextAllCaps = typedArray.getBoolean(R.styleable.EditTextPlus_hintTextAllCaps, false);
             typedArray.recycle();
         }
@@ -176,6 +179,12 @@ public class EditTextPlus extends EditText {
             drawableBottom = bottom;
         }
         super.setCompoundDrawables(left, top, right, bottom);
+    }
+
+    @Override
+    protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
+        super.onTextChanged(text, start, lengthBefore, lengthAfter);
+        setNormal();
     }
 
     @Override
@@ -337,7 +346,7 @@ public class EditTextPlus extends EditText {
         if (textColor != null) {
             setTextColor(textColor);
         } else {
-            setTextColor(Color.WHITE);
+//            setTextColor(Color.WHITE);
         }
         setDrawableRight(null);
     }

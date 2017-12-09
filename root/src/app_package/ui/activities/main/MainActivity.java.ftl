@@ -95,7 +95,7 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
 
         presenter.selectTab(tabLayout.getTabAt(0), false);
     <#else>
-        presenter.onCreatedView(getSupportFragmentManager(), FragmentEnums.HOME, R.id.${layoutName}_frame_content);
+        presenter.onCreatedView(FragmentEnums.HOME, R.id.${layoutName}_frame_content);
     </#if>
     }
 
