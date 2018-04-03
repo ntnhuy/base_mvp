@@ -24,14 +24,16 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".ui.activities.splash.SplashActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.main.${activityClass}" />
+        <activity android:name=".ui.activities.main.${activityClass}"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

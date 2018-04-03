@@ -361,4 +361,5 @@
 
     <open file="${escapeXmlAttribute(srcOut)}/ui/activities/main/${activityClass}.java" />
     <open file="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml" />
+    <open file="${escapeXmlAttribute(projectOut)}/build.gradle" />
 </recipe>
