@@ -21,14 +21,14 @@ public class SplashPresenter extends BasePresenter<SplashView> {
     }
 
     public boolean isFirstInstallApp() {
-        return mDataManager.isFirstInstallApp();
+        return dataManager.isFirstInstallApp();
     }
 
     public void setIsFirstInstallApp(boolean isFirstInstallApp) {
-        mDataManager.setIsFirstInstallApp(isFirstInstallApp);
+        dataManager.setIsFirstInstallApp(isFirstInstallApp);
     }
 
     public boolean isLogin() {
-        return mDataManager.isLogin();
+        return dataManager.isLogin();
     }
 }

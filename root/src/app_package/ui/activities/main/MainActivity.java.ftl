@@ -2,16 +2,15 @@ package ${packageName}.ui.activities.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 
 import ${packageName}.R;
 <#if hasTabbar>
 import ${packageName}.adapters.${activityClass}PagerAdapter;
-import ${packageName}.widgets.CustomViewPager;
 <#else>
 import ${packageName}.enums.FragmentEnums;
 </#if>
@@ -19,31 +18,18 @@ import ${packageName}.app.bases.BaseActivity;
 import ${packageName}.app.bases.BaseFragment;
 import ${packageName}.widgets.ToolBarPlus;
 import ${packageName}.utils.Utils;
+import ${packageName}.databinding.Activity${activityClass?replace('Activity', '')}Binding;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-
 public class ${activityClass} extends BaseActivity implements ${activityClass?replace('Activity', '')}View {
-
-    @BindView(R.id.${layoutName}_drawerlayout)
-    DrawerLayout mDrawerLayout;
-    @BindView(R.id.tool_bar)
-    ToolBarPlus toolBar;
-    <#if hasTabbar>
-    @BindView(R.id.tabbar)
-    TabLayout tabLayout;
-    @BindView(R.id.viewpager)
-    CustomViewPager viewPager;
-    </#if>
-    @BindView(R.id.slider_menu)
-    NavigationView navigationView;
 
 <#if hasTabbar>
     private ${activityClass}PagerAdapter mMainAdapter;
 </#if>
     @Inject
     public ${activityClass?replace('Activity', '')}Presenter presenter;
+    Activity${activityClass?replace('Activity', '')}Binding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +54,9 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
 
     @Override
     protected void initVariable() {
+        View decorView = getWindow().getDecorView();
+        ViewGroup contentView = (ViewGroup) decorView.findViewById(android.R.id.content);
+        binding = Activity${activityClass?replace('Activity', '')}Binding.bind(contentView.getChildAt(0));
         getActivityComponent().inject(this);
         presenter.attachView(this);
     }
@@ -75,25 +64,25 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
     @Override
     protected void initView() {
 
-        toolBar.removeAllViews();
-        setSupportActionBar(toolBar);
+        binding.toolBar.removeAllViews();
+        setSupportActionBar(binding.toolBar);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.setDrawerListener(toggle);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, binding.drawerlayout, binding.toolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        binding.drawerlayout.setDrawerListener(toggle);
         toggle.syncState();
-        presenter.setNavigationItemSelectedListener(navigationView);
-        presenter.setupUI(mDrawerLayout);
+        presenter.setNavigationItemSelectedListener(binding.sliderMenu);
+        presenter.setupUI(binding.drawerlayout);
         
     <#if hasTabbar>
         setupTabLayout();
 
         mMainAdapter = new ${activityClass}PagerAdapter(getSupportFragmentManager(), this);
-        viewPager.setAdapter(mMainAdapter);
-        viewPager.setSwipEnable(false);
-//        viewPager.addOnPageChangeListener(this);
-        viewPager.setOffscreenPageLimit(2);
+        binding.viewpager.setAdapter(mMainAdapter);
+        binding.viewpager.setSwipEnable(false);
+//        binding.viewpager.addOnPageChangeListener(this);
+        binding.viewpager.setOffscreenPageLimit(2);
 
-        presenter.selectTab(tabLayout.getTabAt(0), false);
+        presenter.selectTab(binding.tabbar.getTabAt(0), false);
     <#else>
         presenter.onCreatedView(FragmentEnums.HOME, R.id.${layoutName}_frame_content);
     </#if>
@@ -102,17 +91,17 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
     @Override
     protected void initEvent() {
     <#if hasTabbar>
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        binding.tabbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                presenter.unSelectLastActiveTab(tabLayout);
+                presenter.unSelectLastActiveTab(binding.tabbar);
                 presenter.selectTab(tab, true);
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                presenter.unSelectLastActiveTab(tabLayout);
+                presenter.unSelectLastActiveTab(binding.tabbar);
             }
 
             @Override
@@ -125,20 +114,20 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
 
 <#if hasTabbar>
     private void setupTabLayout() {
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab1));
+        binding.tabbar.addTab(binding.tabbar.newTab().setText(R.string.tab1));
 
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab2));
+        binding.tabbar.addTab(binding.tabbar.newTab().setText(R.string.tab2));
     }
 
     @Override
     public void selectTab(int position) {
-        presenter.unSelectLastActiveTab(tabLayout);
-        presenter.selectTab(tabLayout.getTabAt(position), false);
+        presenter.unSelectLastActiveTab(binding.tabbar);
+        presenter.selectTab(binding.tabbar.getTabAt(position), false);
     }
 
     @Override
     public void setCurrentItem(int position, boolean isSmooth) {
-        viewPager.setCurrentItem(position, isSmooth);
+        binding.viewpager.setCurrentItem(position, isSmooth);
     }
 
     @Override
@@ -155,11 +144,11 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
     @Override
     public void setActiveTitle(String title) {
         super.setActiveTitle(title);
-//        toolBar.setTitle(title);
+//        binding.toolBar.setTitle(title);
     }
 
     public ToolBarPlus getToolbar() {
-        return toolBar;
+        return binding.toolBar;
     }
 
     @Override
@@ -169,7 +158,7 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
 
     @Override
     public void resetView() {
-        toolBar.reset();
+        binding.toolBar.reset();
         Utils.hideSoftKeyboard(this);
         <#if hasTabbar>
         mMainAdapter.getCurrentFragment().setToolBar();
@@ -192,6 +181,6 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
 
     @Override
     public void closeDrawer() {
-        mDrawerLayout.closeDrawers();
+        binding.drawerlayout.closeDrawers();
     }
 }

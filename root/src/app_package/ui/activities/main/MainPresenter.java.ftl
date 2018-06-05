@@ -86,13 +86,13 @@ public class ${activityClass?replace('Activity', '')}Presenter extends BasePrese
                 switch (item.getItemId()) {
                     case R.id.logout:
                     <#if includeDB>
-                        mSubscriptions.addAll(mDataManager.logout()
-                                .subscribeOn(mSchedulerProvider.io())
-                                .observeOn(mSchedulerProvider.ui())
+                        subscriptions.addAll(dataManager.logout()
+                                .subscribeOn(schedulerProvider.io())
+                                .observeOn(schedulerProvider.ui())
                                 .subscribe(new Consumer<Boolean>() {
                                     @Override
                                     public void accept(@io.reactivex.annotations.NonNull final Boolean aBoolean) throws Exception {
-                                        mDataManager.setIsLogin(false);
+                                        dataManager.setIsLogin(false);
                                     }
                                 }, new Consumer<Throwable>() {
                                     @Override
@@ -101,7 +101,7 @@ public class ${activityClass?replace('Activity', '')}Presenter extends BasePrese
                                     }
                                 }));
                     <#else>
-                        mDataManager.logout();
+                        dataManager.logout();
                     </#if>
                         break;
                     }

@@ -32,8 +32,6 @@ import ${packageName}.widgets.ToolBarPlus;
 
 import javax.inject.Inject;
 
-import butterknife.ButterKnife;
-
 
 /**
  * Created by ntnhuy  on 11/18/15.
@@ -79,7 +77,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseActi
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.bind(this);
         initVariable();
         initView();
         initEvent();

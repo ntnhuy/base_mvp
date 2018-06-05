@@ -49,8 +49,6 @@ dependencies {
 </#if>
     implementation 'com.fasterxml.jackson.core:jackson-core:2.7.0-rc2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.7.0-rc2'
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'de.hdodenhof:circleimageview:2.0.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -81,6 +79,10 @@ android {
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
+    }
+
+    dataBinding {
+        enabled = true
     }
 
 <#if includeFabric || includeDB>

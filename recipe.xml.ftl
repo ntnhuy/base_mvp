@@ -79,8 +79,6 @@
 
 	<instantiate from="src/app_package/app/bases/BaseActivityView.java.ftl" to="${escapeXmlAttribute(srcOut)}/app/bases/BaseActivityView.java"/>
 
-	<instantiate from="src/app_package/app/bases/BaseDialogFragment.java.ftl" to="${escapeXmlAttribute(srcOut)}/app/bases/BaseDialogFragment.java"/>
-
 	<instantiate from="src/app_package/app/bases/BaseFragment.java.ftl" to="${escapeXmlAttribute(srcOut)}/app/bases/BaseFragment.java"/>
 
 	<instantiate from="src/app_package/app/bases/BaseModel.java.ftl" to="${escapeXmlAttribute(srcOut)}/app/bases/BaseModel.java"/>
@@ -148,12 +146,6 @@
 	<instantiate from="src/app_package/ui/activities/splash/SplashPresenter.java.ftl" to="${escapeXmlAttribute(srcOut)}/ui/activities/splash/SplashPresenter.java"/>
 
 	<instantiate from="src/app_package/ui/activities/splash/SplashView.java.ftl" to="${escapeXmlAttribute(srcOut)}/ui/activities/splash/SplashView.java"/>
-
-	<instantiate from="src/app_package/ui/dialogs/BaseDialog.java.ftl" to="${escapeXmlAttribute(srcOut)}/ui/dialogs/BaseDialog.java"/>
-
-	<instantiate from="src/app_package/ui/dialogs/BaseDialogMvp.java.ftl" to="${escapeXmlAttribute(srcOut)}/ui/dialogs/BaseDialogMvp.java"/>
-
-	<instantiate from="src/app_package/ui/dialogs/BaseDialogPresenter.java.ftl" to="${escapeXmlAttribute(srcOut)}/ui/dialogs/BaseDialogPresenter.java"/>
 
 	<instantiate from="src/app_package/ui/fragments/home/HomeFragment.java.ftl" to="${escapeXmlAttribute(srcOut)}/ui/fragments/home/HomeFragment.java"/>
 
@@ -224,8 +216,6 @@
 	<instantiate from="res/layout/activity_main.xml.ftl" to="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml"/>
 
 	<instantiate from="res/layout/alert_dialog.xml.ftl" to="${escapeXmlAttribute(resOut)}/layout/alert_dialog.xml"/>
-
-	<instantiate from="res/layout/dialog_frag_test_base.xml.ftl" to="${escapeXmlAttribute(resOut)}/layout/dialog_frag_test_base.xml"/>
 
 	<instantiate from="res/layout/fragment_home.xml.ftl" to="${escapeXmlAttribute(resOut)}/layout/fragment_home.xml"/>
 

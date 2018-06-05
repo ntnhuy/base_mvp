@@ -5,10 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.ButterKnife;
-
 import ${packageName}.R;
 import ${packageName}.app.bases.BaseFragment;
+import ${packageName}.databinding.FragmentHomeBinding;
 
 import javax.inject.Inject;
 
@@ -17,6 +16,7 @@ public class HomeFragment extends BaseFragment implements HomeView {
 
     @Inject
     HomePresenter presenter;
+    FragmentHomeBinding binding;
 
     View view;
 
@@ -27,11 +27,8 @@ public class HomeFragment extends BaseFragment implements HomeView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (view == null) {
-            view = inflater.inflate(R.layout.fragment_home, container, false);
-            ButterKnife.bind(this, view);
-        }
-        return view;
+        binding = FragmentHomeBinding.inflate(inflater);
+        return binding.getRoot();
     }
 
     @Override

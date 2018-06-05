@@ -1,9 +1,7 @@
 package ${packageName}.app.di.component;
 
-import ${packageName}.app.bases.BaseDialogFragment;
 import ${packageName}.app.bases.BaseFragment;
 import ${packageName}.app.di.scopes.UserScope;
-import ${packageName}.ui.dialogs.BaseDialog;
 import ${packageName}.ui.fragments.home.HomeFragment;
 
 import dagger.Component;
@@ -17,6 +15,4 @@ import dagger.Component;
 public interface FragmentComponent {
     void inject(BaseFragment fragment);
     void inject(HomeFragment fragment);
-    void inject(BaseDialogFragment fragment);
-    void inject(BaseDialog fragment);
 }

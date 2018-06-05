@@ -33,52 +33,44 @@ import retrofit2.Response;
  */
 public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
 
-    protected final DataManager mDataManager;
+    protected final DataManager dataManager;
     <#if includeDB || includeRetrofit>
-    protected final CompositeDisposable mSubscriptions;
-    protected final SchedulerProvider mSchedulerProvider;
+    protected final CompositeDisposable subscriptions;
+    protected final SchedulerProvider schedulerProvider;
     </#if>
 
     private final String TAG = getClass().getSimpleName();
-    private T mMvpView;
+    private T mvpView;
     private SweetAlertDialog mDialog;
     private Handler handler = new Handler();
 
-    protected Runnable mDeferredOnDrawerClosedRunnable;
-    protected boolean mAccountBoxExpanded = false;
-    protected FragmentEnums fragmentEnums = FragmentEnums.HOME;
-    protected boolean addBackStack = true;
-    protected String currentFragmentName;
-    protected Bundle bundle;
-    protected boolean shouldChangeFragment;
-
-    public BasePresenter(DataManager mDataManager<#if includeDB || includeRetrofit>, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable</#if>) {
-        this.mDataManager = mDataManager;
+    public BasePresenter(DataManager dataManager<#if includeDB || includeRetrofit>, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable</#if>) {
+        this.dataManager = dataManager;
         <#if includeDB || includeRetrofit>
-        this.mSubscriptions = compositeDisposable;
-        this.mSchedulerProvider =  schedulerProvider;
+        this.subscriptions = compositeDisposable;
+        this.schedulerProvider =  schedulerProvider;
         </#if>
     }
 
     @Override
     public void attachView(T mvpView) {
-        mMvpView = mvpView;
+        this.mvpView = mvpView;
     }
 
     @Override
     public void detachView() {
     <#if includeDB || includeRetrofit>
-        mSubscriptions.dispose();
+        subscriptions.clear();
     </#if>
-        mMvpView = null;
+        mvpView = null;
     }
 
     public boolean isViewAttached() {
-        return mMvpView != null;
+        return mvpView != null;
     }
 
     public T getMvpView() {
-        return mMvpView;
+        return mvpView;
     }
 
     public void checkViewAttached() {
@@ -128,25 +120,25 @@ public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
     }
 
     private void initDialog(String message, int type) {
-        if (mMvpView.getContext() == null) {
+        if (mvpView.getContext() == null) {
             //check case NPE
             return;
         }
-       /* if (mMvpView == null || (mMvpView != null && mMvpView.getContext() == null)) {
+       /* if (mvpView == null || (mvpView != null && mvpView.getContext() == null)) {
             //check case NPE
             Log.d(TAG, "initDialog: ");
             return;
         }*/
         switch (type) {
             case SweetAlertDialog.PROGRESS_TYPE:
-                mDialog = new SweetAlertDialog(mMvpView.getContext(), SweetAlertDialog.PROGRESS_TYPE);
+                mDialog = new SweetAlertDialog(mvpView.getContext(), SweetAlertDialog.PROGRESS_TYPE);
                 mDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
                 mDialog.setTitleText(TextUtils.isEmpty(message) ? Utils.getString(R.string.loading) : message);
                 break;
 
             case SweetAlertDialog.SUCCESS_TYPE:
                 if (mDialog == null) {
-                    mDialog = new SweetAlertDialog(mMvpView.getContext(), SweetAlertDialog.SUCCESS_TYPE)
+                    mDialog = new SweetAlertDialog(mvpView.getContext(), SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText(Utils.getString(R.string.dialog_success))
                             .setContentText(message);
                 } else {
@@ -158,7 +150,7 @@ public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
 
             case SweetAlertDialog.ERROR_TYPE:
                 if (mDialog == null) {
-                    mDialog = new SweetAlertDialog(mMvpView.getContext(), SweetAlertDialog.ERROR_TYPE)
+                    mDialog = new SweetAlertDialog(mvpView.getContext(), SweetAlertDialog.ERROR_TYPE)
                             .setTitleText(Utils.getString(R.string.dialog_text_error_title))
                             .setContentText(message)
                             .setConfirmText(Utils.getString(R.string.dialog_ok));
@@ -172,7 +164,7 @@ public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
 
             case SweetAlertDialog.WARNING_TYPE:
                 if (mDialog == null) {
-                    mDialog = new SweetAlertDialog(mMvpView.getContext(), SweetAlertDialog.WARNING_TYPE)
+                    mDialog = new SweetAlertDialog(mvpView.getContext(), SweetAlertDialog.WARNING_TYPE)
                             .setTitleText(Utils.getString(R.string.dialog_text_warning_title))
                             .setContentText(message)
                             .setConfirmText(Utils.getString(R.string.dialog_ok));
@@ -186,7 +178,7 @@ public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
 
             case SweetAlertDialog.NORMAL_TYPE:
                 if (mDialog == null) {
-                    mDialog = new SweetAlertDialog(mMvpView.getContext(), SweetAlertDialog.NORMAL_TYPE)
+                    mDialog = new SweetAlertDialog(mvpView.getContext(), SweetAlertDialog.NORMAL_TYPE)
                             .setTitleText(Utils.getString(R.string.app_name))
                             .setContentText(message)
                             .setConfirmText(Utils.getString(R.string.dialog_ok));
@@ -205,7 +197,7 @@ public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
-        if (mMvpView == null || mMvpView.getContext() == null) {
+        if (mvpView == null || mvpView.getContext() == null) {
             return;
         }
         if (mDialog != null && mDialog.getAlerType() == SweetAlertDialog.PROGRESS_TYPE) {
@@ -229,7 +221,7 @@ public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
-        if (mMvpView == null || mMvpView.getContext() == null) {
+        if (mvpView == null || mvpView.getContext() == null) {
             return;
         }
         if (mDialog != null && mDialog.getAlerType() == SweetAlertDialog.PROGRESS_TYPE) {
@@ -300,7 +292,7 @@ public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
             }
-            if (mDialog != null && !mDialog.isShowing() && mMvpView != null) {
+            if (mDialog != null && !mDialog.isShowing() && mvpView != null) {
                 try {
                     mDialog.show();
                 } catch (Exception ex) {
