@@ -4,6 +4,7 @@
     
     <LinearLayout
         android:layout_height="@dimen/nav_header_height"
+        android:layout_width="match_parent"
         android:background="@drawable/side_nav_bar"
         android:gravity="bottom"
         android:orientation="vertical"
