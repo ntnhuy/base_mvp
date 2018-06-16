@@ -14,12 +14,12 @@
 
     <string name="dialog_success">Success</string>
     <string name="dialog_ok">OK</string>
-    <string name="dialog_cancel">Thoát</string>
+    <string name="dialog_cancel">Cancel</string>
     <string name="loading">Loading...</string>
-    <string name="dialog_text_error_title">Rất tiếc...</string>
-    <string name="dialog_text_warning_title">Cảnh báo</string>
-    <string name="general_error">Lỗi. Vui lòng thử lại sau.</string>
-    <string name="connection_error">Lỗi kết nối!</string>
+    <string name="dialog_text_error_title">Oops...</string>
+    <string name="dialog_text_warning_title">Warning</string>
+    <string name="general_error">Error. Please try again.</string>
+    <string name="connection_error">Connection Error!</string>
     <string name="back_to_exit">Press back again to exit!</string>
     <string name="fragment_home_label">HOME</string>
     <string name="left_menu_home">HOME</string>
