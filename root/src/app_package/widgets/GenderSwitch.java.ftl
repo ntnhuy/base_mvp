@@ -33,6 +33,12 @@ import android.widget.CompoundButton;
 
 import ${packageName}.R;
 
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class GenderSwitch extends CompoundButton {
     private static final int TOUCH_MODE_IDLE = 0;
     private static final int TOUCH_MODE_DOWN = 1;

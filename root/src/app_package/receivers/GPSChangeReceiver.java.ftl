@@ -10,9 +10,11 @@ import android.net.NetworkInfo;
 import ${packageName}.utils.Utils;
 
 /**
- * Created by tohuy on 9/14/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class GPSChangeReceiver extends BroadcastReceiver {
     private OnGPSChangeListener mListener;
     private Integer mPreviousNetworkState;   //0: On    1: Off

@@ -11,6 +11,12 @@ import android.view.animation.Transformation;
 
 import ${packageName}.R;
 
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class Rotate3dAnimation extends Animation {
     public static final int ROLL_BY_X = 0;
     public static final int ROLL_BY_Y = 1;

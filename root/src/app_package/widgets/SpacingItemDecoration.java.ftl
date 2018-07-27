@@ -4,6 +4,12 @@ import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class SpacingItemDecoration extends RecyclerView.ItemDecoration {
     private int left;
     private int top;

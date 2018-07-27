@@ -18,8 +18,11 @@ import ${packageName}.utils.Utils;
 import ${packageName}.widgets.ToolBarPlus;
 
 /**
- * Created by ntnhuy  on 11/18/15
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public abstract class BaseFragment extends Fragment {
 //    public static String name;
     /**

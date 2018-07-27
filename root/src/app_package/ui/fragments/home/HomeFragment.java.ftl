@@ -11,7 +11,12 @@ import ${packageName}.databinding.FragmentHomeBinding;
 
 import javax.inject.Inject;
 
-
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class HomeFragment extends BaseFragment implements HomeView {
 
     @Inject

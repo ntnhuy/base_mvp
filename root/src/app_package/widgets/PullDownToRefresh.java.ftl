@@ -8,9 +8,11 @@ import android.util.AttributeSet;
 import ${packageName}.R;
 
 /**
- * Created by ntnhuy on 16/12/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class PullDownToRefresh extends SwipeRefreshLayout {
 
     private LinearLayoutManager mChildViewLayoutManager;

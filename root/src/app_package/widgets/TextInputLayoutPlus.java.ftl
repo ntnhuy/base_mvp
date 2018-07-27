@@ -16,8 +16,11 @@ import ${packageName}.R;
 import ${packageName}.utils.Utils;
 
 /**
- * Created by ntnhuy on 20/03/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class TextInputLayoutPlus extends TextInputLayout {
     String error = "";
 

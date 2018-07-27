@@ -6,6 +6,12 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class NetworkChangeReceiver extends BroadcastReceiver {
     private OnConnectivityChangeListener mListener;
     private Integer mPreviousNetworkState;

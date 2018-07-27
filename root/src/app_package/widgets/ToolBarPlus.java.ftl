@@ -23,9 +23,11 @@ import ${packageName}.listeners.OnCloseListener;
 import ${packageName}.utils.Utils;
 
 /**
- * Created by ntnhuy on 23/12/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class ToolBarPlus extends Toolbar {
 
     Context ctx;

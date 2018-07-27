@@ -23,8 +23,11 @@ import ${packageName}.utils.Utils;
 import java.lang.reflect.Field;
 
 /**
- * Created by ntnhuy on 1/19/16
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class ButtonPlus extends Button {
 
     private float duration = 250;

@@ -34,8 +34,11 @@ import javax.inject.Inject;
 
 
 /**
- * Created by ntnhuy  on 11/18/15.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public abstract class BaseActivity extends AppCompatActivity implements BaseActivityView, NetworkChangeReceiver.OnConnectivityChangeListener {
 
     @Inject

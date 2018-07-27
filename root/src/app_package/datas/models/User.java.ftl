@@ -11,9 +11,11 @@ import org.greenrobot.greendao.annotation.Generated;
 import ${packageName}.app.bases.BaseModel;
 
 /**
- * Created by tohuy on 10/31/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 @Entity(indexes = {
         @Index(value = "username, id DESC", unique = true)
 })

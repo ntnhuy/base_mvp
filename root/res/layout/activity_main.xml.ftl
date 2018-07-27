@@ -2,6 +2,20 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
     
+    <data>
+
+    <#if hasTabbar>
+        <variable
+            name="pagerAdapter"
+            type="${packageName}.adapters.MainActivityPagerAdapter"/>
+    </#if>
+
+        <variable
+            name="presenter"
+            type="${packageName}.ui.activities.main.${activityClass?replace('Activity', '')}Presenter"/>
+
+    </data>
+
     <android.support.v4.widget.DrawerLayout 
         android:id="@+id/drawerlayout"
         android:layout_width="match_parent"
@@ -40,7 +54,10 @@
                     app:tabIndicatorColor="@color/transparent"
                     app:tabBackground="@color/colorPrimaryDark"
                     app:tabTextColor="@color/gray_light"
-                    app:tabSelectedTextColor="@color/white"/>
+                    app:tabSelectedTextColor="@color/white"
+                    app:title="@{@stringArray/tabbar_title}"
+                    app:selectTab="@{presenter.selectTab(tabbar)}"
+                    app:unSelectLastActiveTab="@{presenter.unSelectLastActiveTab(tabbar)}"/>
 
                 <View
                     android:id="@+id/line"
@@ -58,6 +75,8 @@
                     android:id="@+id/viewpager"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    app:initViewPager="@{pagerAdapter}"
+                    app:swipeEnable="@{false}"
                 <#if positionOfTabbar == 'top'>
                     android:layout_below="@+id/line"
                 <#else>

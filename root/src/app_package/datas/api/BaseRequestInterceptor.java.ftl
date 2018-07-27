@@ -14,7 +14,12 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class ${classApplication}RequestInterceptor implements Interceptor {
 
     public ${classApplication}RequestInterceptor() {

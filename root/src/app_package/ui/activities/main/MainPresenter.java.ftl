@@ -41,9 +41,11 @@ import android.view.Gravity;
 </#if>
 
 /**
- * Created by tohuy on 9/14/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class ${activityClass?replace('Activity', '')}Presenter extends BasePresenter<${activityClass?replace('Activity', '')}View> {
 <#if hasTabbar>
     private int mLastActiveTab = Constants.TAB.TAB1;
@@ -133,77 +135,63 @@ public class ${activityClass?replace('Activity', '')}Presenter extends BasePrese
     }
 
 <#if hasTabbar>
-    public void selectTab(TabLayout.Tab tab, boolean isPress) {
-        final int position = tab.getPosition();
-        mLastActiveTab = position;
-        getMvpView().setCurrentItem(position, true);
-        new Handler().post(new Runnable() {
+    public Runnable selectTab(final TabLayout tabLayout) {
+        return new Runnable() {
             @Override
             public void run() {
-                if (getMvpView().getCurrentFragment() != null) {
-                    getMvpView().resetView();
-                    getMvpView().setActiveTitle(getMvpView().getActionBarTitle(position));
-                } else {
-                    new Handler().postDelayed(this, 200);
+                TabLayout.Tab tab = tabLayout.getTabAt(tabLayout.getSelectedTabPosition());
+                final int position = tab.getPosition();
+                mLastActiveTab = position;
+                getMvpView().setCurrentItem(position, true);
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (getMvpView().getCurrentFragment() != null) {
+                            getMvpView().resetView();
+                            getMvpView().setActiveTitle(getMvpView().getActionBarTitle(position));
+                        } else {
+                            new Handler().postDelayed(this, 200);
+                        }
+                    }
+                });
+                switch (position) {
+                    case Constants.TAB.TAB1:
+                        if (tab.getCustomView() != null) {
+
+                        }
+                        break;
+
+                    case Constants.TAB.TAB2:
+                        if (tab.getCustomView() != null) {
+
+                        }
+                        break;
                 }
             }
-        });
-        switch (position) {
-            case Constants.TAB.TAB1:
-                if (tab.getCustomView() != null) {
-                    IconWithNotification icFeed = (IconWithNotification) tab.getCustomView();
-//                    icFeed.setSrc(Utils.getDrawable(R.drawable.ic_TAB1_pressed));
-                    tab.setCustomView(icFeed);
-                }
-                break;
-
-            case Constants.TAB.TAB2:
-                if (tab.getCustomView() != null) {
-                    IconWithNotification icSession = (IconWithNotification) tab.getCustomView();
-//                    icSession.setSrc(Utils.getDrawable(R.drawable.ic_TAB2_pressed));
-                    tab.setCustomView(icSession);
-                }
-                break;
-        }
+        };
     }
 
-    public void unSelectLastActiveTab(TabLayout tabLayout) {
-        int position = mLastActiveTab;
-        TabLayout.Tab tab = tabLayout.getTabAt(position);
-        switch (position) {
-            case Constants.TAB.TAB1:
-                if (tab.getCustomView() != null) {
-                    IconWithNotification icFeed = (IconWithNotification) tab.getCustomView();
-//                    icFeed.setSrc(Utils.getDrawable(R.drawable.ic_TAB1));
-                    tab.setCustomView(icFeed);
-                }
-                break;
+    public Runnable unSelectLastActiveTab(final TabLayout tabLayout) {
+        return new Runnable() {
+            @Override
+            public void run() {
+                int position = mLastActiveTab;
+                TabLayout.Tab tab = tabLayout.getTabAt(position);
+                switch (position) {
+                    case Constants.TAB.TAB1:
+                        if (tab.getCustomView() != null) {
 
-            case Constants.TAB.TAB2:
-//                if (organic) updateFeedHeader();
-                if (tab.getCustomView() != null) {
-                    IconWithNotification icSession = (IconWithNotification) tab.getCustomView();
-//                    icSession.setSrc(Utils.getDrawable(R.drawable.ic_TAB2));
-                    tab.setCustomView(icSession);
-                }
-                break;
-        }
-    }
+                        }
+                        break;
 
-    public IconWithNotification initIconNotify(int rscIcon, String badge) {
-        IconWithNotification ic = new IconWithNotification(${classApplication}.getInstance());
-        ic.setLayoutParams(new RelativeLayout.LayoutParams((int) Utils.dp2px(30, ${classApplication}.getInstance()), -2));
-        ic.setSrc(Utils.getDrawable(rscIcon));
-        ic.setHeightIcon((int) Utils.dp2px(25, ${classApplication}.getInstance()));
-        ic.setWidthIcon((int) Utils.dp2px(25, ${classApplication}.getInstance()));
-        ic.setHeightText((int) Utils.dp2px(15, ${classApplication}.getInstance()));
-        ic.setWidthText((int) Utils.dp2px(15, ${classApplication}.getInstance()));
-        ic.setTextAppearance(android.R.style.TextAppearance_Small);
-        ic.setRatio(0.7f);
-        ic.setText(badge);
-        ic.setTextColor(Color.WHITE);
-        ic.setGravityTextView(Gravity.CENTER);
-        return ic;
+                    case Constants.TAB.TAB2:
+                        if (tab.getCustomView() != null) {
+
+                        }
+                        break;
+                }
+            }
+        };
     }
 <#else>
     public void onCreatedView(FragmentEnums enums, @IdRes int resId) {

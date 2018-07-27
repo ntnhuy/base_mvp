@@ -2,6 +2,7 @@ package ${packageName}.app.bases;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.databinding.BaseObservable;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,9 +30,12 @@ import retrofit2.Response;
 </#if>
 
 /**
- * Created by ntnhuy on 2/23/16.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-public abstract class BasePresenter<T extends MvpView> implements Presenter<T> {
+ 
+public abstract class BasePresenter<T extends MvpView> extends BaseObservable implements Presenter<T> {
 
     protected final DataManager dataManager;
     <#if includeDB || includeRetrofit>

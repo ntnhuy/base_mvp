@@ -1,8 +1,11 @@
 package ${packageName}.utils;
 
 /**
- * Created by ntnhuy on 03/03/16.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class Constants {
 
     public final static String EMPTY = "";

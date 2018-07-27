@@ -33,8 +33,11 @@ import ${packageName}.app.di.module.RxModule;
 import javax.inject.Inject;
 
 /**
- * Created by ntnhuy on 5/29/2015.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class ${classApplication} extends MultiDexApplication {
 
     private static ${classApplication} sInstance;

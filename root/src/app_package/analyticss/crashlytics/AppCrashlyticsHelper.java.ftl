@@ -9,7 +9,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
- * Created by tohuy on 9/23/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
 
 @Singleton

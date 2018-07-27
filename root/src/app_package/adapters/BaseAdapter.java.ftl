@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ntnhuy on 4/6/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public abstract class BaseAdapter<T> extends  RecyclerView.Adapter<RecyclerView.ViewHolder> {
     protected List<T> arrData;
     protected boolean mIsLoading = true;

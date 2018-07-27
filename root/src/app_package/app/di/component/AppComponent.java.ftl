@@ -31,9 +31,11 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
- * Created by tohuy on 9/17/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 @Singleton
 @Component(modules = {AppModule.class, PreferenceModule.class<#if includeRetrofit || includeDB>, RxModule.class<#if includeDB>, DBModule.class</#if><#if includeRetrofit>, ApiModule.class</#if></#if><#if includeGA || includeFabric>, AnalyticsModule.class</#if>})
 public interface AppComponent {

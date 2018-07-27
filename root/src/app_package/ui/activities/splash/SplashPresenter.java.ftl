@@ -10,9 +10,11 @@ import io.reactivex.disposables.CompositeDisposable;
 import javax.inject.Inject;
 
 /**
- * Created by tohuy on 9/22/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class SplashPresenter extends BasePresenter<SplashView> {
 
     @Inject

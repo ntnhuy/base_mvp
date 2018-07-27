@@ -8,9 +8,11 @@ import ${packageName}.listeners.IEnterText;
 import ${packageName}.widgets.EditTextPlus;
 
 /**
- * Created by ntnhuy on 18/12/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class TextWatcherPlus implements TextWatcher {
 
     private EditTextPlus edt;

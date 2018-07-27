@@ -7,8 +7,11 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
- * Created by ntnhuy on 28/06/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class CustomViewPager extends ViewPager {
     private boolean isSwipingEnabled = true;
 

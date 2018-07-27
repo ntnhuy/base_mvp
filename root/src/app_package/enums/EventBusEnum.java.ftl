@@ -1,9 +1,11 @@
 package ${packageName}.enums;
 
 /**
- * Created by ntnhuy on 21/12/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public enum EventBusEnum {
     NONE("-1");
 

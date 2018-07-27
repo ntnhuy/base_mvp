@@ -3,8 +3,11 @@ package ${packageName}.datas.models;
 import ${packageName}.enums.EventBusEnum;
 
 /**
- * Created by ntnhuy on 02/06/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class EventBusModel<T> {
     private EventBusEnum busEnum;
     private T data;

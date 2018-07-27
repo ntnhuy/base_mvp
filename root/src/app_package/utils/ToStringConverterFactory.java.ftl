@@ -11,8 +11,11 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 
 /**
- * Created by ntnhuy on 09/12/2015.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public final class ToStringConverterFactory extends Converter.Factory {
 
     @Override

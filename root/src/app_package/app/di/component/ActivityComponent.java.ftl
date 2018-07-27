@@ -8,9 +8,11 @@ import ${packageName}.ui.activities.splash.SplashActivity;
 import dagger.Component;
 
 /**
- * Created by tohuy on 9/8/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 @UserScope
 @Component(dependencies = AppComponent.class)
 public interface ActivityComponent {

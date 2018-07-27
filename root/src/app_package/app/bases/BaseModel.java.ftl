@@ -1,12 +1,15 @@
 package ${packageName}.app.bases;
 
+import android.databinding.BaseObservable;
 import ${packageName}.utils.Utils;
 
 /**
- * Created by tohuy on 9/25/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
-public class BaseModel {
+ 
+public class BaseModel extends BaseObservable {
 
     public String toString() {
         return Utils.parseObjectToJson(this);

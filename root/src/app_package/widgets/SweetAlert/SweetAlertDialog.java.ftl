@@ -24,6 +24,12 @@ import java.util.List;
 
 import ${packageName}.R;
 
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class SweetAlertDialog extends Dialog implements View.OnClickListener {
     public static final int NORMAL_TYPE = 0;
     public static final int ERROR_TYPE = 1;

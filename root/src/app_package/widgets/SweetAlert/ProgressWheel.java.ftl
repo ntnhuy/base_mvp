@@ -20,6 +20,12 @@ import android.view.View;
 import ${packageName}.R;
 
 /**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
+/**
  * A Material style progress wheel, compatible up to 2.2. Todd Davies' Progress Wheel
  * https://github.com/Todd-Davies/ProgressWheel
  *

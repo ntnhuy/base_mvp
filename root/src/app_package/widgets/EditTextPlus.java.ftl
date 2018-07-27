@@ -23,8 +23,11 @@ import ${packageName}.R;
 import ${packageName}.utils.Utils;
 
 /**
- * Created by ntnhuy on 12/14/15.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class EditTextPlus extends EditText {
 
     int actionX, actionY;

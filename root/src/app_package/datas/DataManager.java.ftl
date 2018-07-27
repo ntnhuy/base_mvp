@@ -12,8 +12,11 @@ import ${packageName}.datas.db.DbHelper;
 import ${packageName}.datas.prefs.PreferencesHelper;
 
 /**
- * Created by ntnhuy on 20/03/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public interface DataManager extends PreferencesHelper<#if includeDB>, DbHelper</#if><#if includeRetrofit>, ApiHelper</#if> {
 <#if includeDB>
     Observable<Boolean> logout();

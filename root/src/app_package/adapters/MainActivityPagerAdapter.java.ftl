@@ -12,9 +12,11 @@ import ${packageName}.utils.Constants;
 import ${packageName}.utils.Utils;
 
 /**
- * Created by ntnhuy on 22/12/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class ${activityClass}PagerAdapter extends FragmentPagerAdapter {
 
     private BaseFragment mCurrentFragment;

@@ -11,9 +11,11 @@ import org.greenrobot.greendao.database.Database;
 import javax.inject.Inject;
 
 /**
- * Created by tohuy on 9/17/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class DbOpenHelper extends DaoMaster.OpenHelper {
 
     @Inject

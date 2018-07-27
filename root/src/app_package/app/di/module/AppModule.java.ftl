@@ -16,9 +16,11 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by tohuy on 9/8/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 @Module
 public class AppModule {
 

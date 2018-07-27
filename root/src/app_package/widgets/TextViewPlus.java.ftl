@@ -18,8 +18,11 @@ import ${packageName}.R;
 import ${packageName}.utils.Utils;
 
 /**
- * Created by ntnhuy on 14/12/2015.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class TextViewPlus extends TextView {
     private float defaultTextSize;
 

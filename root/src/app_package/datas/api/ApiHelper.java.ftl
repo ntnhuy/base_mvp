@@ -1,8 +1,11 @@
 package ${packageName}.datas.api;
 
 /**
- * Created by ntnhuy on 09/12/2015.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public interface ApiHelper {
 
 }

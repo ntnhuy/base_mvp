@@ -32,5 +32,9 @@
     <string name="navigation_drawer_close">Close</string>
     <string name="tab1">Tab1</string>
     <string name="tab2">Tab2</string>
+    <string-array name="tabbar_title">
+        <item>Tab1</item>
+        <item>Tab2</item>
+    </string-array>
 
 </resources>

@@ -58,8 +58,11 @@ import retrofit2.Response;
 </#if>
 
 /**
- * Created by ntnhuy  on 11/18/15.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class Utils {
 
     public static final String TAG = "Utils";

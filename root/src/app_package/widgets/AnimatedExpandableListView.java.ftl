@@ -20,6 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
+/**
  * This class defines an ExpandableListView which supports animations for
  * collapsing and expanding groups.
  */

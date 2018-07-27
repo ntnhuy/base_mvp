@@ -7,12 +7,13 @@ import android.support.v4.app.FragmentManager;
 </#if>
 
 /**
- * Created by tohuy on 9/14/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public interface ${activityClass?replace('Activity', '')}View extends MvpView {
 <#if hasTabbar>
-    void selectTab(int position);
     void setCurrentItem(int position, boolean isSmooth);
     BaseFragment getCurrentFragment();
     void setActiveTitle(String text);

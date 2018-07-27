@@ -4,6 +4,12 @@ import android.content.Context;
 
 import ${packageName}.R;
 
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class ProgressHelper {
     private ProgressWheel mProgressWheel;
     private boolean mToSpin;

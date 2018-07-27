@@ -7,8 +7,10 @@ import ${packageName}.analyticss.ga.GAHelper;
 </#if>
 
 /**
- * Created by tohuy on 9/23/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public interface AnalyticsManager extends <#if includeGA>GAHelper</#if><#if includeGA && includeFabric>,</#if> <#if includeFabric>CrashlyticsHelper</#if> {
 }

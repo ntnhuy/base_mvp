@@ -22,9 +22,11 @@ import ${packageName}.widgets.TextViewPlus;
 import javax.inject.Inject;
 
 /**
- * Created by ntnhuy on 22/12/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public class IconWithNotification extends RelativeLayout implements IconWithNotificationView {
     
     private ImageView imgIcon;

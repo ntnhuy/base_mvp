@@ -10,6 +10,12 @@ import android.widget.ImageView;
 
 import ${packageName}.R;
 
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class TransitionDrawableImageView extends ImageView {
     private CountDownTimer mCountDownTimer;
     private boolean mIsReversing = true;

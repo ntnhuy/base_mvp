@@ -22,10 +22,15 @@ import ${packageName}.databinding.Activity${activityClass?replace('Activity', ''
 
 import javax.inject.Inject;
 
+/**
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
+ */
+ 
 public class ${activityClass} extends BaseActivity implements ${activityClass?replace('Activity', '')}View {
-
 <#if hasTabbar>
-    private ${activityClass}PagerAdapter mMainAdapter;
+    private ${activityClass}PagerAdapter adapter;
 </#if>
     @Inject
     public ${activityClass?replace('Activity', '')}Presenter presenter;
@@ -74,15 +79,9 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
         presenter.setupUI(binding.drawerlayout);
         
     <#if hasTabbar>
-        setupTabLayout();
-
-        mMainAdapter = new ${activityClass}PagerAdapter(getSupportFragmentManager(), this);
-        binding.viewpager.setAdapter(mMainAdapter);
-        binding.viewpager.setSwipEnable(false);
-//        binding.viewpager.addOnPageChangeListener(this);
-        binding.viewpager.setOffscreenPageLimit(2);
-
-        presenter.selectTab(binding.tabbar.getTabAt(0), false);
+    	adapter = new ${activityClass}PagerAdapter(getSupportFragmentManager(), this);
+        binding.setPagerAdapter(adapter);
+        binding.setPresenter(presenter);
     <#else>
         presenter.onCreatedView(FragmentEnums.HOME, R.id.${layoutName}_frame_content);
     </#if>
@@ -90,41 +89,10 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
 
     @Override
     protected void initEvent() {
-    <#if hasTabbar>
-        binding.tabbar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                presenter.unSelectLastActiveTab(binding.tabbar);
-                presenter.selectTab(tab, true);
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                presenter.unSelectLastActiveTab(binding.tabbar);
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                onTabSelected(tab);
-            }
-        });
-    </#if>
+        
     }
 
 <#if hasTabbar>
-    private void setupTabLayout() {
-        binding.tabbar.addTab(binding.tabbar.newTab().setText(R.string.tab1));
-
-        binding.tabbar.addTab(binding.tabbar.newTab().setText(R.string.tab2));
-    }
-
-    @Override
-    public void selectTab(int position) {
-        presenter.unSelectLastActiveTab(binding.tabbar);
-        presenter.selectTab(binding.tabbar.getTabAt(position), false);
-    }
-
     @Override
     public void setCurrentItem(int position, boolean isSmooth) {
         binding.viewpager.setCurrentItem(position, isSmooth);
@@ -132,12 +100,12 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
 
     @Override
     public BaseFragment getCurrentFragment() {
-        return mMainAdapter.getCurrentFragment();
+        return adapter.getCurrentFragment();
     }
 
     @Override
     public String getActionBarTitle(int position) {
-        return mMainAdapter.getActionBarTitle(position);
+        return adapter.getActionBarTitle(position);
     }
 </#if>
 
@@ -161,8 +129,8 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
         binding.toolBar.reset();
         Utils.hideSoftKeyboard(this);
         <#if hasTabbar>
-        mMainAdapter.getCurrentFragment().setToolBar();
-        mMainAdapter.getCurrentFragment().refresh(false);
+        adapter.getCurrentFragment().setToolBar();
+        adapter.getCurrentFragment().refresh(false);
         </#if>
     }
 
@@ -170,7 +138,7 @@ public class ${activityClass} extends BaseActivity implements ${activityClass?re
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         <#if hasTabbar>
-        mMainAdapter.getCurrentFragment().onActivityResult(requestCode, resultCode, data);
+        adapter.getCurrentFragment().onActivityResult(requestCode, resultCode, data);
         </#if>
     }
 

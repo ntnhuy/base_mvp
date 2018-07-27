@@ -1,9 +1,11 @@
 package ${packageName}.listeners;
 
 /**
- * Created by ntnhuy on 25/12/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 public interface OnBackListener {
     void onBack();
 }

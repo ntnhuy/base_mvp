@@ -10,9 +10,11 @@ import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
- * Created by tohuy on 9/17/17.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
-
+ 
 @Module
 public class RxModule {
     @Provides

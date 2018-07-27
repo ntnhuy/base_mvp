@@ -119,6 +119,8 @@
 
 	<instantiate from="src/app_package/enums/FragmentEnums.java.ftl" to="${escapeXmlAttribute(srcOut)}/enums/FragmentEnums.java"/>
 
+	<instantiate from="src/app_package/helper/DataBindingHelper.java.ftl" to="${escapeXmlAttribute(srcOut)}/helper/DataBindingHelper.java"/>
+
 	<instantiate from="src/app_package/listeners/IEnterText.java.ftl" to="${escapeXmlAttribute(srcOut)}/listeners/IEnterText.java"/>
 
 	<instantiate from="src/app_package/listeners/OnBackListener.java.ftl" to="${escapeXmlAttribute(srcOut)}/listeners/OnBackListener.java"/>

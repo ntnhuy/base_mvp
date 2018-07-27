@@ -12,8 +12,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by ntnhuy on 18/04/2016.
+ * User: ntnhuy
+ * Date: ${.now?string('M/dd/yy')}
+ * Time: ${.now?string('h:mm a')}
  */
+ 
 public class ${classApplication}Service {
     public static Activity context;
     private static Retrofit retrofit;
